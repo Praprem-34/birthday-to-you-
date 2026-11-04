@@ -1,1 +1,600 @@
-# birthday-to-you-
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy 19th Birthday ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Itim&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --pink: #f58eae;
+  --deep: #df638d;
+  --light: #fff0f5;
+  --cream: #fffafc;
+}
+
+body {
+  font-family: 'Quicksand', 'Itim', sans-serif;
+  background: #fff0f5;
+  color: #a75b78;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+button, input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+#app {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 15% 20%, white 0 2px, transparent 3px),
+    radial-gradient(circle at 80% 40%, white 0 2px, transparent 3px),
+    linear-gradient(145deg,#ffe5ef,#f8b8d0,#fff0f5);
+}
+
+.decor {
+  position: fixed;
+  pointer-events: none;
+  opacity: .55;
+  font-size: 25px;
+  animation: float 5s ease-in-out infinite;
+}
+
+.d1 {top: 10%;left: 8%}
+.d2 {top: 25%;right: 8%;animation-delay: 1s}
+.d3 {bottom: 15%;left: 12%;animation-delay: 2s}
+.d4 {bottom: 25%;right: 10%;animation-delay: 3s}
+
+@keyframes float {
+  0%,100% {transform:translateY(0) rotate(-5deg)}
+  50% {transform:translateY(-15px) rotate(8deg)}
+}
+
+.page {
+  display: none;
+  min-height: 100vh;
+  padding: 35px 20px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  animation: appear .7s ease;
+}
+
+.page.active {
+  display: flex;
+}
+
+@keyframes appear {
+  from {opacity:0;transform:translateY(15px)}
+  to {opacity:1;transform:translateY(0)}
+}
+
+.card {
+  width: 100%;
+  max-width: 390px;
+  padding: 32px 25px;
+  background: rgba(255,255,255,.88);
+  border-radius: 27px;
+  text-align: center;
+  box-shadow: 0 12px 35px #d77c9c35;
+  border: 1px solid white;
+}
+
+.illustration {
+  font-size: 65px;
+  margin-bottom: 15px;
+}
+
+h1 {
+  font-family: 'Itim', cursive;
+  font-size: 34px;
+  color: #df7399;
+  margin-bottom: 12px;
+}
+
+h2 {
+  font-family: 'Itim', cursive;
+  font-size: 27px;
+  margin-bottom: 15px;
+}
+
+p {
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+input {
+  width: 100%;
+  padding: 15px;
+  margin: 22px 0 12px;
+  border: 1px solid #f5c1d2;
+  background: #fff8fb;
+  border-radius: 15px;
+  text-align: center;
+  outline: none;
+  letter-spacing: 5px;
+  color: #c65c83;
+}
+
+.main-btn {
+  width: 100%;
+  padding: 14px;
+  color: white;
+  background: linear-gradient(120deg,#f5a2be,#df638d);
+  border-radius: 30px;
+  box-shadow: 0 5px 15px #df638d35;
+  font-weight: 700;
+  margin-top: 15px;
+  transition: .3s;
+}
+
+.main-btn:active {
+  transform: scale(.96);
+}
+
+.small {
+  font-size: 11px;
+  opacity: .65;
+  margin-top: 18px;
+}
+
+/* BIRTHDAY */
+
+.cake {
+  font-size: 80px;
+  margin-bottom: 15px;
+  animation: float 3s infinite;
+}
+
+.age {
+  font-size: 65px;
+  font-weight: 700;
+  color: #e66c98;
+  margin: 15px;
+}
+
+.age small {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 4px;
+}
+
+/* LETTER */
+
+.letter {
+  text-align: left;
+  line-height: 2;
+  background: #fffafd;
+  padding: 22px;
+  border-radius: 15px;
+  font-size: 14px;
+  white-space: pre-line;
+}
+
+.signature {
+  text-align: right;
+  color: #e1799f;
+  margin-top: 20px;
+  font-family: 'Itim', cursive;
+  font-size: 20px;
+}
+
+/* CAMERA */
+
+.camera {
+  width: 220px;
+  height: 165px;
+  margin: 30px auto;
+  background: linear-gradient(145deg,#ffbed3,#ec81a8);
+  border: 8px solid #fff;
+  border-radius: 22px;
+  box-shadow: 0 12px 20px #b9547d35;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.camera::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 35px;
+  width: 35px;
+  height: 12px;
+  background: #e66d97;
+  border-radius: 7px 7px 0 0;
+}
+
+.lens {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background: radial-gradient(circle,#25243a 25%,#76768e 27%,#27263b 55%,#fff 58%);
+  border: 8px solid #fff;
+}
+
+/* GALLERY */
+
+#galleryPage {
+  background: #fff0f5;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 15px;
+  width: 100%;
+  max-width: 370px;
+  margin-top: 25px;
+}
+
+.photo {
+  background: white;
+  padding: 8px 8px 18px;
+  box-shadow: 0 5px 15px #9f526a25;
+  transform: rotate(-2deg);
+  transition: .3s;
+}
+
+.photo:nth-child(even) {
+  transform: rotate(3deg);
+}
+
+.photo:active {
+  transform: scale(1.04);
+}
+
+.photo img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  display: block;
+}
+
+.photo span {
+  display: block;
+  font-family: 'Itim', cursive;
+  font-size: 13px;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.photo button {
+  width: 100%;
+  background: transparent;
+  color: inherit;
+}
+
+/* PHOTO VIEW */
+
+#viewer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: #171421f5;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+}
+
+#viewer.show {
+  display: flex;
+}
+
+#viewer img {
+  max-width: 100%;
+  max-height: 65vh;
+  object-fit: contain;
+  border: 10px solid white;
+}
+
+.close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: white;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font-size: 20px;
+}
+
+/* END */
+
+.heart {
+  font-size: 60px;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  50% {transform:scale(1.2)}
+}
+
+.footer {
+  margin-top: 25px;
+  font-size: 12px;
+  color: #d17b9b;
+}
+
+@media(max-width:380px) {
+  h1 {font-size:29px}
+  .card {padding:25px 18px}
+}
+</style>
+</head>
+
+<body>
+
+<div id="app">
+
+<div class="decor d1">🐱</div>
+<div class="decor d2">🐰</div>
+<div class="decor d3">♡</div>
+<div class="decor d4">🌸</div>
+
+<!-- PAGE 1 PASSWORD -->
+
+<section class="page active" id="passwordPage">
+  <div class="card">
+    <div class="illustration">🐱 🎀 🐰</div>
+    <h2>Welcome, Birthday Girl!</h2>
+    <p>มีของขวัญเล็ก ๆ รอเธออยู่นะ</p>
+    <p>ลองใส่รหัสลับเพื่อเปิดดูสิ ♡</p>
+
+    <input id="passwordInput"
+      type="password"
+      placeholder="Enter password">
+
+    <button class="main-btn" onclick="checkPassword()">
+      Unlock My Surprise ♡
+    </button>
+
+    <p id="error" class="small"></p>
+    <div class="footer">Made with love ♡</div>
+  </div>
+</section>
+
+<!-- PAGE 2 BIRTHDAY -->
+
+<section class="page" id="birthdayPage">
+  <div class="card">
+    <div class="cake">🎂</div>
+    <h1>Happy Birthday!</h1>
+    <p>วันนี้เป็นวันพิเศษของคนพิเศษ</p>
+
+    <div class="age">
+      19
+      <small>YEARS OLD</small>
+    </div>
+
+    <p>
+      ขอให้วันนี้เต็มไปด้วยรอยยิ้ม<br>
+      ความสุข และเรื่องราวดี ๆ นะ
+    </p>
+
+    <button class="main-btn" onclick="go('letterPage')">
+      เปิดคำอวยพร ♡
+    </button>
+  </div>
+</section>
+
+<!-- PAGE 3 LETTER -->
+
+<section class="page" id="letterPage">
+  <div class="card">
+    <div class="illustration">💌</div>
+    <h2>Happy Birthday to You!</h2>
+
+    <div class="letter">
+ถึงคนพิเศษของเค้า ♡
+
+สุขสันต์วันเกิดนะ ขอให้ปีที่ 19
+เป็นปีที่เต็มไปด้วยความสุข
+
+ขอให้เธอได้ทำในสิ่งที่ชอบ
+มีคนรักและคอยอยู่ข้าง ๆ เสมอ
+
+ในวันที่เหนื่อยก็อย่าลืมพักผ่อน
+และอย่าลืมว่าเธอมีคุณค่ามากแค่ไหน
+
+ขอบคุณที่เกิดมาให้เค้าได้พบเธอนะ
+
+รักเธอที่สุดเลย ♡
+    </div>
+
+    <div class="signature">With love, Always ♡</div>
+
+    <button class="main-btn" onclick="go('cameraPage')">
+      ไปดูความทรงจำของเรากัน
+    </button>
+  </div>
+</section>
+
+<!-- PAGE 4 CAMERA -->
+
+<section class="page" id="cameraPage">
+  <div class="card">
+    <div class="illustration">🐰 📸 🐱</div>
+    <h2>Our Little Memories</h2>
+    <p>มีภาพความทรงจำเล็ก ๆ<br>อยากให้เธอได้เห็น</p>
+
+    <div class="camera">
+      <div class="lens"></div>
+    </div>
+
+    <button class="main-btn" onclick="go('galleryPage')">
+      เปิดอัลบั้มภาพ ♡
+    </button>
+  </div>
+</section>
+
+<!-- PAGE 5 GALLERY -->
+
+<section class="page" id="galleryPage">
+  <div class="card">
+    <h2>Our Memories ♡</h2>
+    <p>แตะรูปภาพเพื่อเปิดดูขนาดใหญ่</p>
+
+    <div class="gallery">
+
+      <div class="photo">
+        <button onclick="viewPhoto('photo1.jpg')">
+          <img src="photo1.jpg" alt="Memory 1">
+          <span>Memory No.1 ♡</span>
+        </button>
+      </div>
+
+      <div class="photo">
+        <button onclick="viewPhoto('photo2.jpg')">
+          <img src="photo2.jpg" alt="Memory 2">
+          <span>Memory No.2 ♡</span>
+        </button>
+      </div>
+
+      <div class="photo">
+        <button onclick="viewPhoto('photo3.jpg')">
+          <img src="photo3.jpg" alt="Memory 3">
+          <span>Memory No.3 ♡</span>
+        </button>
+      </div>
+
+      <div class="photo">
+        <button onclick="viewPhoto('photo4.jpg')">
+          <img src="photo4.jpg" alt="Memory 4">
+          <span>Memory No.4 ♡</span>
+        </button>
+      </div>
+
+      <div class="photo">
+        <button onclick="viewPhoto('photo5.jpg')">
+          <img src="photo5.jpg" alt="Memory 5">
+          <span>Memory No.5 ♡</span>
+        </button>
+      </div>
+
+      <div class="photo">
+        <button onclick="viewPhoto('photo6.jpg')">
+          <img src="photo6.jpg" alt="Memory 6">
+          <span>Memory No.6 ♡</span>
+        </button>
+      </div>
+
+    </div>
+
+    <button class="main-btn" onclick="go('endPage')">
+      ดูข้อความสุดท้าย ♡
+    </button>
+  </div>
+</section>
+
+<!-- PHOTO VIEWER -->
+
+<div id="viewer">
+  <button class="close" onclick="closePhoto()">×</button>
+  <img id="bigPhoto" src="" alt="Memory">
+</div>
+
+<!-- PAGE 6 END -->
+
+<section class="page" id="endPage">
+  <div class="card">
+    <div class="heart">💗</div>
+    <h1>For You ♡</h1>
+
+    <p>
+      ไม่ว่าจะผ่านไปกี่วัน<br>
+      ก็ขอให้เธอมีความสุขเสมอ
+    </p>
+
+    <div class="illustration">🐱 🐰</div>
+
+    <h2>Happy 19th Birthday!</h2>
+
+    <p>ขอให้รอยยิ้มของเธอ<br>
+    สวยงามแบบนี้ไปตลอดเลยนะ</p>
+
+    <div class="footer">
+      This little website is made just for you ♡
+    </div>
+  </div>
+</section>
+
+</div>
+
+<script>
+
+// ===========================
+// PASSWORD
+// ===========================
+
+// เปลี่ยนรหัสผ่านตรงนี้ได้
+const PASSWORD = "1904";
+
+function checkPassword() {
+  const input = document.getElementById("passwordInput").value;
+
+  if(input === PASSWORD) {
+    go("birthdayPage");
+  } else {
+    document.getElementById("error").textContent =
+      "รหัสยังไม่ถูกต้อง ลองอีกครั้งนะ ♡";
+  }
+}
+
+document.getElementById("passwordInput")
+.addEventListener("keydown", function(e) {
+  if(e.key === "Enter") checkPassword();
+});
+
+// ===========================
+// PAGE TRANSITION
+// ===========================
+
+function go(pageId) {
+  document.querySelectorAll(".page")
+    .forEach(page => page.classList.remove("active"));
+
+  document.getElementById(pageId)
+    .classList.add("active");
+
+  window.scrollTo(0,0);
+}
+
+// ===========================
+// PHOTO VIEWER
+// ===========================
+
+function viewPhoto(src) {
+  document.getElementById("bigPhoto").src = src;
+  document.getElementById("viewer").classList.add("show");
+}
+
+function closePhoto() {
+  document.getElementById("viewer").classList.remove("show");
+}
+
+</script>
+
+</body>
+</html>
