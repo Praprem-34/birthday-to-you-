@@ -341,6 +341,246 @@ input {
   h1 {font-size:29px}
   .card {padding:25px 18px}
 }
+  
+/* =========================
+   BIRTHDAY CAKE PAGE
+========================= */
+
+#cakePage {
+  background:
+    radial-gradient(circle at 50% 40%, #fffafd, transparent 55%),
+    linear-gradient(145deg, #ffe0ed, #f5a9c7);
+  text-align: center;
+}
+
+.cake-title {
+  font-family: 'Itim', cursive;
+  font-size: 36px;
+  color: #d85f91;
+  margin-bottom: 10px;
+}
+
+.cake-subtitle {
+  margin-bottom: 35px;
+  color: #ad6481;
+}
+
+.big-cake {
+  position: relative;
+  width: 290px;
+  height: 245px;
+  margin: 15px auto 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  animation: cakeAppear 1s ease;
+}
+
+@keyframes cakeAppear {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Candles */
+
+.candles {
+  display: flex;
+  gap: 32px;
+  position: absolute;
+  top: 0;
+  z-index: 5;
+}
+
+.candle {
+  width: 13px;
+  height: 62px;
+  border-radius: 5px 5px 2px 2px;
+  background: repeating-linear-gradient(
+    135deg,
+    #fff 0 6px,
+    #f18bb3 6px 12px
+  );
+  position: relative;
+}
+
+.flame {
+  position: absolute;
+  top: -27px;
+  left: 2px;
+  width: 10px;
+  height: 22px;
+  background: radial-gradient(
+    ellipse at 50% 70%,
+    #fffbd1 0 20%,
+    #ffbd48 45%,
+    #ff7c39 75%
+  );
+  border-radius: 50% 50% 45% 45%;
+  transform-origin: bottom;
+  animation: flicker .45s infinite alternate;
+  filter: drop-shadow(0 0 8px #ffbb54);
+}
+
+@keyframes flicker {
+  from {transform: rotate(-7deg) scale(1)}
+  to {transform: rotate(7deg) scale(1.12)}
+}
+
+/* Cake body */
+
+.cake-top {
+  width: 220px;
+  height: 65px;
+  background: #fff0f6;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 130px;
+  z-index: 3;
+  border: 4px solid #fff;
+}
+
+.cake-middle {
+  width: 225px;
+  height: 75px;
+  background: linear-gradient(
+    90deg,
+    #e985ac,
+    #ffc1d8,
+    #e985ac
+  );
+  position: absolute;
+  bottom: 65px;
+  border-radius: 15px 15px 25px 25px;
+  z-index: 2;
+  box-shadow: inset 0 -9px 0 #d66d97;
+}
+
+.cake-middle::before {
+  content: "";
+  position: absolute;
+  top: -9px;
+  left: 0;
+  width: 100%;
+  height: 24px;
+  background: #fff4f8;
+  border-radius: 50%;
+}
+
+.cake-middle::after {
+  content: "♡  ♡  ♡";
+  position: absolute;
+  bottom: 17px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 23px;
+}
+
+.cake-bottom {
+  width: 285px;
+  height: 85px;
+  position: absolute;
+  bottom: 0;
+  border-radius: 18px 18px 30px 30px;
+  background: linear-gradient(
+    90deg,
+    #e87ca5,
+    #ffb5d0,
+    #e87ca5
+  );
+  box-shadow: 0 12px 20px #bd547b35;
+  z-index: 1;
+}
+
+.cake-bottom::before {
+  content: "";
+  position: absolute;
+  top: -13px;
+  left: 0;
+  width: 100%;
+  height: 35px;
+  background: #fff3f8;
+  border-radius: 50%;
+}
+
+.cake-decoration {
+  position: absolute;
+  bottom: 30px;
+  z-index: 4;
+  font-size: 25px;
+}
+
+/* Blow candles */
+
+.blow-btn {
+  width: 240px;
+  padding: 16px;
+  background: linear-gradient(120deg,#f49bbb,#df6495);
+  border-radius: 35px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 0 7px 20px #c85b853d;
+}
+
+.blow-btn:active {
+  transform: scale(.95);
+}
+
+.blown .flame {
+  display: none;
+}
+
+.blow-message {
+  min-height: 35px;
+  margin-top: 18px;
+  font-family: 'Itim', cursive;
+  color: #d45d8c;
+  font-size: 22px;
+}
+
+#continueBirthday {
+  display: none;
+  margin-top: 12px;
+}
+
+/* Confetti */
+
+.confetti {
+  position: fixed;
+  top: -20px;
+  z-index: 15;
+  pointer-events: none;
+  animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@media(max-width:380px) {
+  .big-cake {
+    transform: scale(.9);
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  .cake-title {
+    font-size: 30px;
+  }
+}
+
 </style>
 </head>
 
@@ -502,10 +742,91 @@ input {
 
     </div>
 
-    <button class="main-btn" onclick="go('endPage')">
-      ดูข้อความสุดท้าย ♡
-    </button>
+ <button class="main-btn" onclick="go('cakePage')">
+  ไปเป่าเทียนวันเกิดกัน 🎂
+</button>
   </div>
+</section>
+
+  
+<!-- PAGE 6 BIRTHDAY CAKE -->
+
+<section class="page" id="cakePage">
+
+  <div class="card">
+
+    <div class="illustration">🐱 🎀 🐰</div>
+
+    <h1 class="cake-title">
+      Make a Wish!
+    </h1>
+
+    <p class="cake-subtitle">
+      อธิษฐานขอพร แล้วเป่าเทียนกันนะ ♡
+    </p>
+
+    <div class="big-cake" id="birthdayCake">
+
+      <!-- Candles -->
+
+      <div class="candles">
+
+        <div class="candle">
+          <div class="flame"></div>
+        </div>
+
+        <div class="candle">
+          <div class="flame"></div>
+        </div>
+
+        <div class="candle">
+          <div class="flame"></div>
+        </div>
+
+      </div>
+
+      <!-- Cake layers -->
+
+      <div class="cake-top"></div>
+
+      <div class="cake-middle"></div>
+
+      <div class="cake-bottom"></div>
+
+      <div class="cake-decoration">
+        🍓 🍓 🍓
+      </div>
+
+    </div>
+
+    <p class="blow-message" id="blowMessage">
+      Make your sweetest wish! 💗
+    </p>
+
+    <button
+      class="blow-btn"
+      id="blowButton"
+      onclick="blowCandles()">
+
+      💨 Blow the Candles!
+
+    </button>
+
+    <button
+      class="main-btn"
+      id="continueBirthday"
+      onclick="go('endPage')">
+
+      เปิดการ์ดใบสุดท้าย 💌
+
+    </button>
+
+    <div class="footer">
+      A little wish just for you ♡
+    </div>
+
+  </div>
+
 </section>
 
 <!-- PHOTO VIEWER -->
@@ -592,6 +913,72 @@ function viewPhoto(src) {
 
 function closePhoto() {
   document.getElementById("viewer").classList.remove("show");
+}
+
+  
+// ===========================
+// BIRTHDAY CAKE
+// ===========================
+
+let candlesBlown = false;
+
+function blowCandles() {
+
+  if (candlesBlown) return;
+
+  candlesBlown = true;
+
+  // ดับเปลวเทียน
+  document.getElementById("birthdayCake")
+    .classList.add("blown");
+
+  // เปลี่ยนข้อความ
+  document.getElementById("blowMessage")
+    .textContent = "Your wish will come true! 💗";
+
+  // ซ่อนปุ่มเป่าเทียน
+  document.getElementById("blowButton")
+    .style.display = "none";
+
+  // แสดงปุ่มเปิดการ์ด
+  document.getElementById("continueBirthday")
+    .style.display = "block";
+
+  // สร้างเอฟเฟกต์หัวใจและกระดาษโปรย
+  createConfetti();
+}
+
+// ===========================
+// CONFETTI EFFECT
+// ===========================
+
+function createConfetti() {
+
+  const symbols = ["💗", "💕", "🌸", "✨", "🎀", "♡"];
+
+  for (let i = 0; i < 45; i++) {
+
+    const piece = document.createElement("div");
+
+    piece.className = "confetti";
+
+    piece.textContent =
+      symbols[Math.floor(Math.random() * symbols.length)];
+
+    piece.style.left = Math.random() * 100 + "vw";
+
+    piece.style.fontSize =
+      (14 + Math.random() * 18) + "px";
+
+    piece.style.animationDuration =
+      (2 + Math.random() * 2) + "s";
+
+    document.body.appendChild(piece);
+
+    setTimeout(() => {
+      piece.remove();
+    }, 4500);
+  }
 }
 
 </script>
