@@ -90,7 +90,7 @@ button {
 
 .card {
   width: 100%;
-  max-width: 390px;
+  max-width: 490px;
   padding: 32px 25px;
   background: rgba(255,255,255,.88);
   border-radius: 27px;
@@ -320,6 +320,310 @@ input {
   font-size: 20px;
 }
 
+/* =================================
+   PINK BIRTHDAY CAKE
+================================= */
+
+#cakePage {
+  background:
+    radial-gradient(ellipse at center,
+      #fffafd 0%,
+      #ffe6f0 55%,
+      #f7b5ce 100%);
+  text-align: center;
+}
+
+.cake-title {
+  font-family: 'Itim', cursive;
+  font-size: 38px;
+  color: #d65f90;
+  text-shadow: 0 3px 0 #ffffff;
+  margin-bottom: 8px;
+}
+
+.cake-subtitle {
+  margin-bottom: 15px;
+  color: #ad6481;
+}
+
+/* CAKE SCENE */
+
+.cake-scene {
+  width: 100%;
+  max-width: 350px;
+  height: 310px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 22px;
+  animation: cakeAppear 1s ease;
+}
+
+@keyframes cakeAppear {
+  from {
+    opacity: 0;
+    transform: translateY(35px) scale(.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* CAKE SHADOW */
+
+.cake-shadow {
+  position: absolute;
+  bottom: 10px;
+  width: 290px;
+  height: 30px;
+  border-radius: 50%;
+  background: #d9799b38;
+  filter: blur(8px);
+}
+
+/* BOTTOM LAYER */
+
+.cake-bottom-layer {
+  position: absolute;
+  bottom: 35px;
+  width: 275px;
+  height: 105px;
+  background: linear-gradient(
+    90deg,
+    #e77da6,
+    #ffbfd5 45%,
+    #e984aa
+  );
+  border: 4px solid #d86c97;
+  border-radius: 17px 17px 25px 25px;
+  box-shadow: inset 0 -9px 0 #d76d96;
+  z-index: 2;
+}
+
+.cake-bottom-layer::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -2px;
+  width: 100%;
+  height: 36px;
+  background: #fff5f8;
+  border: 3px solid #edb0c6;
+  border-radius: 50%;
+}
+
+.cake-bottom-layer::after {
+  content: "♡  ♡  ♡";
+  position: absolute;
+  bottom: 17px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 23px;
+}
+
+/* TOP LAYER */
+
+.cake-top-layer {
+  position: absolute;
+  bottom: 133px;
+  width: 190px;
+  height: 85px;
+  background: linear-gradient(
+    90deg,
+    #e98aaf,
+    #ffc5d9 50%,
+    #e98aaf
+  );
+  border: 4px solid #d86c97;
+  border-radius: 15px 15px 20px 20px;
+  box-shadow: inset 0 -7px 0 #d9779e;
+  z-index: 4;
+}
+
+/* ICING */
+
+.top-icing {
+  position: absolute;
+  top: -14px;
+  left: -3px;
+  width: 190px;
+  height: 38px;
+  background: #fff7fa;
+  border: 3px solid #f0b8ce;
+  border-radius: 50%;
+  z-index: 5;
+}
+
+.top-icing::after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 8px;
+  width: 168px;
+  height: 28px;
+  background:
+    radial-gradient(ellipse at 10% 0%, #fff7fa 0 11px, transparent 12px),
+    radial-gradient(ellipse at 35% 0%, #fff7fa 0 12px, transparent 13px),
+    radial-gradient(ellipse at 60% 0%, #fff7fa 0 11px, transparent 12px),
+    radial-gradient(ellipse at 85% 0%, #fff7fa 0 12px, transparent 13px);
+}
+
+/* CAKE TOP DECORATION */
+
+.cake-cherries {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 100%;
+  font-size: 23px;
+  text-align: center;
+  z-index: 7;
+  letter-spacing: 8px;
+}
+
+/* CANDLE */
+
+.cake-candle {
+  position: absolute;
+  bottom: 210px;
+  width: 15px;
+  height: 65px;
+  left: calc(50% - 7px);
+  z-index: 9;
+  border-radius: 4px;
+  background: repeating-linear-gradient(
+    135deg,
+    #ffffff 0px,
+    #ffffff 8px,
+    #ef8db4 8px,
+    #ef8db4 15px
+  );
+  border: 1px solid #d77da0;
+}
+
+.cake-flame {
+  position: absolute;
+  top: -28px;
+  left: 1px;
+  width: 12px;
+  height: 25px;
+  background: linear-gradient(
+    to top,
+    #ff922e,
+    #ffe56c,
+    #fff9d7
+  );
+  border-radius: 50% 50% 40% 40%;
+  box-shadow: 0 0 15px #ffb13d;
+  animation: candleFlame .5s infinite alternate;
+  transform-origin: bottom;
+}
+
+@keyframes candleFlame {
+  from {transform: rotate(-8deg) scale(.95)}
+  to {transform: rotate(8deg) scale(1.08)}
+}
+
+/* SMOKE */
+
+.candle-smoke {
+  position: absolute;
+  top: -35px;
+  left: -3px;
+  color: #ffffff;
+  font-size: 23px;
+  opacity: 0;
+}
+
+.candle-smoke.show {
+  animation: smokeUp 2s ease-out forwards;
+}
+
+@keyframes smokeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(.5);
+  }
+  30% {opacity: .9}
+  100% {
+    opacity: 0;
+    transform: translateY(-55px) scale(2);
+  }
+}
+
+/* CAT AND BUNNY */
+
+.cake-pet {
+  position: absolute;
+  bottom: 0;
+  font-size: 42px;
+  z-index: 10;
+  animation: petFloat 3s infinite ease-in-out;
+}
+
+.cat-pet {left: 0}
+
+.bunny-pet {
+  right: 0;
+  animation-delay: 1s;
+}
+
+@keyframes petFloat {
+  50% {transform: translateY(-10px)}
+}
+
+/* BLOW BUTTON */
+
+.blow-btn {
+  width: 245px;
+  padding: 16px;
+  background: linear-gradient(120deg,#f4a2c0,#dd6495);
+  border-radius: 35px;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  box-shadow: 0 7px 18px #c85b8535;
+  transition: .3s;
+}
+
+.blow-btn:active {
+  transform: scale(.95);
+}
+
+.blow-message {
+  min-height: 35px;
+  margin: 12px 0;
+  color: #d45d8c;
+  font-family: 'Itim', cursive;
+  font-size: 21px;
+}
+
+#continueBirthday {
+  display: none;
+}
+
+/* CONFETTI */
+
+.confetti {
+  position: fixed;
+  top: -20px;
+  z-index: 30;
+  pointer-events: none;
+  animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
 /* END */
 
 .heart {
@@ -340,247 +644,15 @@ input {
 @media(max-width:380px) {
   h1 {font-size:29px}
   .card {padding:25px 18px}
-}
-  
-/* =========================
-   BIRTHDAY CAKE PAGE
-========================= */
 
-#cakePage {
-  background:
-    radial-gradient(circle at 50% 40%, #fffafd, transparent 55%),
-    linear-gradient(145deg, #ffe0ed, #f5a9c7);
-  text-align: center;
-}
-
-.cake-title {
-  font-family: 'Itim', cursive;
-  font-size: 36px;
-  color: #d85f91;
-  margin-bottom: 10px;
-}
-
-.cake-subtitle {
-  margin-bottom: 35px;
-  color: #ad6481;
-}
-
-.big-cake {
-  position: relative;
-  width: 290px;
-  height: 245px;
-  margin: 15px auto 25px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  animation: cakeAppear 1s ease;
-}
-
-@keyframes cakeAppear {
-  from {
-    opacity: 0;
-    transform: translateY(40px) scale(.8);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* Candles */
-
-.candles {
-  display: flex;
-  gap: 32px;
-  position: absolute;
-  top: 0;
-  z-index: 5;
-}
-
-.candle {
-  width: 13px;
-  height: 62px;
-  border-radius: 5px 5px 2px 2px;
-  background: repeating-linear-gradient(
-    135deg,
-    #fff 0 6px,
-    #f18bb3 6px 12px
-  );
-  position: relative;
-}
-
-.flame {
-  position: absolute;
-  top: -27px;
-  left: 2px;
-  width: 10px;
-  height: 22px;
-  background: radial-gradient(
-    ellipse at 50% 70%,
-    #fffbd1 0 20%,
-    #ffbd48 45%,
-    #ff7c39 75%
-  );
-  border-radius: 50% 50% 45% 45%;
-  transform-origin: bottom;
-  animation: flicker .45s infinite alternate;
-  filter: drop-shadow(0 0 8px #ffbb54);
-}
-
-@keyframes flicker {
-  from {transform: rotate(-7deg) scale(1)}
-  to {transform: rotate(7deg) scale(1.12)}
-}
-
-/* Cake body */
-
-.cake-top {
-  width: 220px;
-  height: 65px;
-  background: #fff0f6;
-  border-radius: 50%;
-  position: absolute;
-  bottom: 130px;
-  z-index: 3;
-  border: 4px solid #fff;
-}
-
-.cake-middle {
-  width: 225px;
-  height: 75px;
-  background: linear-gradient(
-    90deg,
-    #e985ac,
-    #ffc1d8,
-    #e985ac
-  );
-  position: absolute;
-  bottom: 65px;
-  border-radius: 15px 15px 25px 25px;
-  z-index: 2;
-  box-shadow: inset 0 -9px 0 #d66d97;
-}
-
-.cake-middle::before {
-  content: "";
-  position: absolute;
-  top: -9px;
-  left: 0;
-  width: 100%;
-  height: 24px;
-  background: #fff4f8;
-  border-radius: 50%;
-}
-
-.cake-middle::after {
-  content: "♡  ♡  ♡";
-  position: absolute;
-  bottom: 17px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  color: #fff;
-  font-size: 23px;
-}
-
-.cake-bottom {
-  width: 285px;
-  height: 85px;
-  position: absolute;
-  bottom: 0;
-  border-radius: 18px 18px 30px 30px;
-  background: linear-gradient(
-    90deg,
-    #e87ca5,
-    #ffb5d0,
-    #e87ca5
-  );
-  box-shadow: 0 12px 20px #bd547b35;
-  z-index: 1;
-}
-
-.cake-bottom::before {
-  content: "";
-  position: absolute;
-  top: -13px;
-  left: 0;
-  width: 100%;
-  height: 35px;
-  background: #fff3f8;
-  border-radius: 50%;
-}
-
-.cake-decoration {
-  position: absolute;
-  bottom: 30px;
-  z-index: 4;
-  font-size: 25px;
-}
-
-/* Blow candles */
-
-.blow-btn {
-  width: 240px;
-  padding: 16px;
-  background: linear-gradient(120deg,#f49bbb,#df6495);
-  border-radius: 35px;
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
-  box-shadow: 0 7px 20px #c85b853d;
-}
-
-.blow-btn:active {
-  transform: scale(.95);
-}
-
-.blown .flame {
-  display: none;
-}
-
-.blow-message {
-  min-height: 35px;
-  margin-top: 18px;
-  font-family: 'Itim', cursive;
-  color: #d45d8c;
-  font-size: 22px;
-}
-
-#continueBirthday {
-  display: none;
-  margin-top: 12px;
-}
-
-/* Confetti */
-
-.confetti {
-  position: fixed;
-  top: -20px;
-  z-index: 15;
-  pointer-events: none;
-  animation: fall 3s linear forwards;
-}
-
-@keyframes fall {
-  to {
-    transform: translateY(110vh) rotate(720deg);
-    opacity: 0;
-  }
-}
-
-@media(max-width:380px) {
-  .big-cake {
-    transform: scale(.9);
-    margin-top: 0;
-    margin-bottom: 10px;
+  .cake-scene {
+    transform: scale(.88);
+    transform-origin: top center;
+    margin-bottom: -30px;
   }
 
-  .cake-title {
-    font-size: 30px;
-  }
+  .cake-title {font-size:31px}
 }
-
 </style>
 </head>
 
@@ -742,13 +814,12 @@ input {
 
     </div>
 
- <button class="main-btn" onclick="go('cakePage')">
-  ไปเป่าเทียนวันเกิดกัน 🎂
-</button>
+    <button class="main-btn" onclick="go('cakePage')">
+      ไปเป่าเทียนวันเกิดกัน 🎂
+    </button>
   </div>
 </section>
 
-  
 <!-- PAGE 6 BIRTHDAY CAKE -->
 
 <section class="page" id="cakePage">
@@ -765,37 +836,43 @@ input {
       อธิษฐานขอพร แล้วเป่าเทียนกันนะ ♡
     </p>
 
-    <div class="big-cake" id="birthdayCake">
+    <div class="cake-scene" id="birthdayCake">
 
-      <!-- Candles -->
+      <div class="cake-shadow"></div>
 
-      <div class="candles">
+      <!-- Bottom Cake -->
 
-        <div class="candle">
-          <div class="flame"></div>
-        </div>
+      <div class="cake-bottom-layer"></div>
 
-        <div class="candle">
-          <div class="flame"></div>
-        </div>
+      <!-- Top Cake -->
 
-        <div class="candle">
-          <div class="flame"></div>
+      <div class="cake-top-layer">
+
+        <div class="top-icing"></div>
+
+        <div class="cake-cherries">
+          🍒 🍓 🍒
         </div>
 
       </div>
 
-      <!-- Cake layers -->
+      <!-- Candle -->
 
-      <div class="cake-top"></div>
+      <div class="cake-candle" id="birthdayCandle">
 
-      <div class="cake-middle"></div>
+        <div class="cake-flame"></div>
 
-      <div class="cake-bottom"></div>
+        <div class="candle-smoke" id="candleSmoke">
+          〰
+        </div>
 
-      <div class="cake-decoration">
-        🍓 🍓 🍓
       </div>
+
+      <!-- Animals -->
+
+      <div class="cake-pet cat-pet">🐱</div>
+
+      <div class="cake-pet bunny-pet">🐰</div>
 
     </div>
 
@@ -808,7 +885,7 @@ input {
       id="blowButton"
       onclick="blowCandles()">
 
-      💨 Blow the Candles!
+      💨 Blow the Candle!
 
     </button>
 
@@ -822,7 +899,7 @@ input {
     </button>
 
     <div class="footer">
-      A little wish just for you ♡
+      A little birthday wish for you ♡
     </div>
 
   </div>
@@ -836,7 +913,7 @@ input {
   <img id="bigPhoto" src="" alt="Memory">
 </div>
 
-<!-- PAGE 6 END -->
+<!-- PAGE 7 END -->
 
 <section class="page" id="endPage">
   <div class="card">
@@ -852,8 +929,10 @@ input {
 
     <h2>Happy 19th Birthday!</h2>
 
-    <p>ขอให้รอยยิ้มของเธอ<br>
-    สวยงามแบบนี้ไปตลอดเลยนะ</p>
+    <p>
+      ขอให้รอยยิ้มของเธอ<br>
+      สวยงามแบบนี้ไปตลอดเลยนะ
+    </p>
 
     <div class="footer">
       This little website is made just for you ♡
@@ -869,23 +948,30 @@ input {
 // PASSWORD
 // ===========================
 
-// เปลี่ยนรหัสผ่านตรงนี้ได้
 const PASSWORD = "1904";
 
 function checkPassword() {
-  const input = document.getElementById("passwordInput").value;
+
+  const input =
+    document.getElementById("passwordInput").value;
 
   if(input === PASSWORD) {
+
     go("birthdayPage");
+
   } else {
+
     document.getElementById("error").textContent =
       "รหัสยังไม่ถูกต้อง ลองอีกครั้งนะ ♡";
+
   }
 }
 
 document.getElementById("passwordInput")
 .addEventListener("keydown", function(e) {
+
   if(e.key === "Enter") checkPassword();
+
 });
 
 // ===========================
@@ -893,6 +979,7 @@ document.getElementById("passwordInput")
 // ===========================
 
 function go(pageId) {
+
   document.querySelectorAll(".page")
     .forEach(page => page.classList.remove("active"));
 
@@ -900,6 +987,7 @@ function go(pageId) {
     .classList.add("active");
 
   window.scrollTo(0,0);
+
 }
 
 // ===========================
@@ -907,45 +995,63 @@ function go(pageId) {
 // ===========================
 
 function viewPhoto(src) {
+
   document.getElementById("bigPhoto").src = src;
-  document.getElementById("viewer").classList.add("show");
+
+  document.getElementById("viewer")
+    .classList.add("show");
+
 }
 
 function closePhoto() {
-  document.getElementById("viewer").classList.remove("show");
+
+  document.getElementById("viewer")
+    .classList.remove("show");
+
 }
 
-  
 // ===========================
-// BIRTHDAY CAKE
+// BIRTHDAY CANDLE
 // ===========================
 
 let candlesBlown = false;
 
 function blowCandles() {
 
-  if (candlesBlown) return;
+  if(candlesBlown) return;
 
   candlesBlown = true;
 
-  // ดับเปลวเทียน
-  document.getElementById("birthdayCake")
-    .classList.add("blown");
+  // ดับไฟเทียน
+  const flame =
+    document.querySelector(".cake-flame");
+
+  flame.style.display = "none";
+
+  // แสดงควัน
+  document.getElementById("candleSmoke")
+    .classList.add("show");
 
   // เปลี่ยนข้อความ
   document.getElementById("blowMessage")
-    .textContent = "Your wish will come true! 💗";
+    .textContent =
+    "Your wish will come true! 💗";
 
   // ซ่อนปุ่มเป่าเทียน
   document.getElementById("blowButton")
     .style.display = "none";
 
-  // แสดงปุ่มเปิดการ์ด
-  document.getElementById("continueBirthday")
-    .style.display = "block";
-
-  // สร้างเอฟเฟกต์หัวใจและกระดาษโปรย
+  // แสดงเอฟเฟกต์
   createConfetti();
+
+  // แสดงปุ่มเปิดการ์ดหลังจากเอฟเฟกต์
+  setTimeout(() => {
+
+    document.getElementById("continueBirthday")
+      .style.display = "block";
+
+  }, 1800);
+
 }
 
 // ===========================
@@ -954,18 +1060,31 @@ function blowCandles() {
 
 function createConfetti() {
 
-  const symbols = ["💗", "💕", "🌸", "✨", "🎀", "♡"];
+  const symbols = [
+    "💗",
+    "💕",
+    "🌸",
+    "✨",
+    "🎀",
+    "♡",
+    "🐱",
+    "🐰"
+  ];
 
-  for (let i = 0; i < 45; i++) {
+  for(let i = 0; i < 50; i++) {
 
-    const piece = document.createElement("div");
+    const piece =
+      document.createElement("div");
 
     piece.className = "confetti";
 
     piece.textContent =
-      symbols[Math.floor(Math.random() * symbols.length)];
+      symbols[Math.floor(
+        Math.random() * symbols.length
+      )];
 
-    piece.style.left = Math.random() * 100 + "vw";
+    piece.style.left =
+      Math.random() * 100 + "vw";
 
     piece.style.fontSize =
       (14 + Math.random() * 18) + "px";
@@ -976,9 +1095,13 @@ function createConfetti() {
     document.body.appendChild(piece);
 
     setTimeout(() => {
+
       piece.remove();
+
     }, 4500);
+
   }
+
 }
 
 </script>
